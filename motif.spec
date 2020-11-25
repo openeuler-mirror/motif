@@ -1,6 +1,6 @@
 Name:          motif
 Version:       2.3.4
-Release:       18
+Release:       19
 Summary:       Run-time libraries and programs
 License:       LGPLv2+
 URL:           http://www.motifzone.net/
@@ -10,6 +10,7 @@ Source1:       xmbind
 BuildRequires: automake, libtool, autoconf, flex, flex-static, byacc, pkgconfig, libjpeg-devel libpng-devel
 BuildRequires: libXft-devel libXmu-devel libXp-devel libXt-devel libXext-devel, xorg-x11-xbitmaps, perl-interpreter
 Requires:      xorg-x11-xbitmaps, xorg-x11-xinit
+Requires:      %{name}-help = %{version}-%{release}
 Provides:      openmotif = %{version}-%{release}
 Obsoletes:     openmotif < %{version}
 Conflicts:     lesstif <= 0.92.32-6
@@ -88,5 +89,8 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %{_mandir}/man*/*
 
 %changelog
+* Sat Nov 07 2020 Ge Wang <wangge20@huawei.com> - 2.3.4-19
+- Set help package as motif package's install require
+
 * Fri Nov 29 2019 openEuler Buildteam <buildteam@openeuler.org> - 2.3.4-18
 - Package init
