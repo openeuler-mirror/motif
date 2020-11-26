@@ -1,9 +1,9 @@
 Name:          motif
 Version:       2.3.4
-Release:       19
+Release:       20
 Summary:       Run-time libraries and programs
 License:       LGPLv2+
-URL:           http://www.motifzone.net/
+URL:           https://motif.ics.com/
 Source0:       http://downloads.sf.net/motif/motif-%{version}-src.tgz
 Source1:       xmbind
 
@@ -89,6 +89,9 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %{_mandir}/man*/*
 
 %changelog
+* Thu Nov 26 2020 zhanghua <zhanghua40@huawei.com> - 2.3.4-20
+- fix url requests timeout problem
+
 * Sat Nov 07 2020 Ge Wang <wangge20@huawei.com> - 2.3.4-19
 - Set help package as motif package's install require
 
