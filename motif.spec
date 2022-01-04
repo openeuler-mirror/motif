@@ -1,10 +1,10 @@
 Name:          motif
-Version:       2.3.4
-Release:       20
+Version:       2.3.8
+Release:       1
 Summary:       Run-time libraries and programs
 License:       LGPLv2+
 URL:           https://motif.ics.com/
-Source0:       http://downloads.sf.net/motif/motif-%{version}-src.tgz
+Source0:       http://downloads.sf.net/motif/motif-%{version}.tar.gz
 Source1:       xmbind
 
 BuildRequires: automake, libtool, autoconf, flex, flex-static, byacc, pkgconfig, libjpeg-devel libpng-devel
@@ -12,16 +12,8 @@ BuildRequires: libXft-devel libXmu-devel libXp-devel libXt-devel libXext-devel, 
 Requires:      xorg-x11-xbitmaps, xorg-x11-xinit
 Requires:      %{name}-help = %{version}-%{release}
 Provides:      openmotif = %{version}-%{release}
-Obsoletes:     openmotif < %{version}
 Conflicts:     lesstif <= 0.92.32-6
-
-Patch0: motif-2.3.4-no_demos.patch
-Patch1: openMotif-2.2.3-uil_lib.patch
-Patch2: openMotif-2.3.0-rgbtxt.patch
-Patch3: motif-2.3.4-mwmrc_dir.patch
-Patch4: motif-2.3.4-bindings.patch
-Patch5: openMotif-2.3.0-no_X11R6.patch
-Patch6: motif-2.3.4-Fix-issues-with-Werror-format-security.patch
+Patch0:	 0001-fix-motif-no-autogen.patch
 
 %description
 This module is motif run-time environment, which includes the motif shared libraries.
@@ -89,6 +81,9 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %{_mandir}/man*/*
 
 %changelog
+* Wed Dec 29 2021 baizhonggui <baizhonggui@huawei.com> - 2.3.8-1
+- update to 2.3.8
+
 * Thu Nov 26 2020 zhanghua <zhanghua40@huawei.com> - 2.3.4-20
 - fix url requests timeout problem
 
