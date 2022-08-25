@@ -1,6 +1,6 @@
 Name:          motif
 Version:       2.3.8
-Release:       1
+Release:       2
 Summary:       Run-time libraries and programs
 License:       LGPLv2+
 URL:           https://motif.ics.com/
@@ -40,6 +40,7 @@ This package includes man files for %{name}.
 
 %prep
 %autosetup -p1
+sed -i 's/-fno-strict-aliasing/-fstack-protector-strong -fno-strict-aliasing/g' configure.ac
 
 %build
 CFLAGS="$RPM_OPT_FLAGS -D_FILE_OFFSET_BITS=64"
@@ -81,6 +82,9 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %{_mandir}/man*/*
 
 %changelog
+* Thu Aug 25 2022 Ge Wang <wangge20@h-partners.com> - 2.3.8-2
+- add security compile option -fstack-protector-strong
+
 * Wed Dec 29 2021 baizhonggui <baizhonggui@huawei.com> - 2.3.8-1
 - update to 2.3.8
 
