@@ -1,6 +1,6 @@
 Name:          motif
 Version:       2.3.8
-Release:       1
+Release:       2
 Summary:       Run-time libraries and programs
 License:       LGPLv2+
 URL:           https://motif.ics.com/
@@ -40,6 +40,10 @@ This package includes man files for %{name}.
 
 %prep
 %autosetup -p1
+%ifarch loongarch64
+%_update_config_guess
+%_update_config_sub
+%endif
 
 %build
 CFLAGS="$RPM_OPT_FLAGS -D_FILE_OFFSET_BITS=64"
@@ -81,6 +85,9 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %{_mandir}/man*/*
 
 %changelog
+* Tue Dec 13 2022 huajingyun <huajingyun@loongson.cn> - 2.3.8-2
+- update config.guess and config.sub for loongarch64
+
 * Wed Dec 29 2021 baizhonggui <baizhonggui@huawei.com> - 2.3.8-1
 - update to 2.3.8
 
