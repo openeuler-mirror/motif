@@ -1,6 +1,6 @@
 Name:          motif
 Version:       2.3.8
-Release:       2
+Release:       3
 Summary:       Run-time libraries and programs
 License:       LGPLv2+
 URL:           https://motif.ics.com/
@@ -14,6 +14,7 @@ Requires:      %{name}-help = %{version}-%{release}
 Provides:      openmotif = %{version}-%{release}
 Conflicts:     lesstif <= 0.92.32-6
 Patch0:	 0001-fix-motif-no-autogen.patch
+Patch1:  update-guess-system.patch
 
 %description
 This module is motif run-time environment, which includes the motif shared libraries.
@@ -82,6 +83,9 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %{_mandir}/man*/*
 
 %changelog
+* Sat May 13 2023 yoo <sunyuechi@iscas.ac.cn> - 2.3.8-3
+- update config.guess, support riscv
+
 * Thu Aug 25 2022 Ge Wang <wangge20@h-partners.com> - 2.3.8-2
 - add security compile option -fstack-protector-strong
 
